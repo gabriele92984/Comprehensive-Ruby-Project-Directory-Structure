@@ -119,7 +119,7 @@ def create_enhanced_structure(project_name)
   
 end
 
-# Create a config.ru if it's a Rack-based application (optional)
+# Call additional methods to create config.ru and executable script
 def create_config_file(project_name)
    File.open("#{project_name}/config.ru", 'w') do |file|
       file.puts "require './lib/#{project_name}'"
@@ -128,7 +128,6 @@ def create_config_file(project_name)
 end
 
 
-# Create a sample executable script in bin/
 def create_executable_script(project_name)
    File.open("#{project_name}/bin/start_app", 'w', chmod:0755) do |file|
       file.puts "#!/usr/bin/env ruby"
